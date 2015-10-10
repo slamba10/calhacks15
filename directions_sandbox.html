@@ -10,62 +10,99 @@
         margin: 0;
         padding: 0;
       }
+    
       #map {
         height: 100%;
       }
+      #header {
+        z-index: 99;
+        margin-bottom: 10px;
+        margin-top: -5px;
+        position: relative;
+        font-size: 24px;
+        font-family: 'Roboto','sans-serif';
+      }
+      #nav{
+        background-color: white;
+        position: fixed;
+        width: 100%;
+        padding: 20px 80px 0px 80px;
+        z-index: 2;
+      }
+
+      #footer {
+        padding: 3px;
+        color: black;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        font-size: 10px;
+      }
+      
 #floating-panel {
-  position: absolute;
+  position: relative;
   top: 10px;
   left: 25%;
   z-index: 5;
   background-color: #fff;
   padding: 5px;
-  border: 1px solid #999;
   text-align: center;
   font-family: 'Roboto','sans-serif';
-  line-height: 30px;
   padding-left: 10px;
 }
 
     </style>
   </head>
   <body>
-    <div id="floating-panel">
+    
+      <nav id="nav" class="active">
+        <div id="header" style="display: inline;">
+          <h1><span>Home</span> | Safe</h1>
+        </div>
+        <div id="floating-panel">
 
-    <b>Start: </b>
-    <select id="start" onchange="calcRoute();">
-      <option value="chicago, il">Chicago</option>
-      <option value="st louis, mo">St Louis</option>
-      <option value="joplin, mo">Joplin, MO</option>
-      <option value="oklahoma city, ok">Oklahoma City</option>
-      <option value="amarillo, tx">Amarillo</option>
-      <option value="gallup, nm">Gallup, NM</option>
-      <option value="flagstaff, az">Flagstaff, AZ</option>
-      <option value="winona, az">Winona</option>
-      <option value="kingman, az">Kingman</option>
-      <option value="barstow, ca">Barstow</option>
-      <option value="san bernardino, ca">San Bernardino</option>
-      <option value="los angeles, ca">Los Angeles</option>
-      <option value="downtown berkeley BART station, shattuck ave, berkeley, ca">BART</option>
-    </select>
-    <b>End: </b>
-    <select id="end" onchange="calcRoute();">
-      <option value="Residence Halls Unit 2, Berkeley, CA">Unit 2</option>
-      <option value="chicago, il">Chicago</option>
-      <option value="st louis, mo">St Louis</option>
-      <option value="joplin, mo">Joplin, MO</option>
-      <option value="oklahoma city, ok">Oklahoma City</option>
-      <option value="amarillo, tx">Amarillo</option>
-      <option value="gallup, nm">Gallup, NM</option>
-      <option value="flagstaff, az">Flagstaff, AZ</option>
-      <option value="winona, az">Winona</option>
-      <option value="kingman, az">Kingman</option>
-      <option value="barstow, ca">Barstow</option>
-      <option value="san bernardino, ca">San Bernardino</option>
-      <option value="los angeles, ca">Los Angeles</option>
-    </select>
-    </div>
-    <div id="map"></div>
+      <b>Start: </b>
+      <select id="start" onchange="calcRoute();">
+        <option value="chicago, il">Chicago</option>
+        <option value="st louis, mo">St Louis</option>
+        <option value="joplin, mo">Joplin, MO</option>
+        <option value="oklahoma city, ok">Oklahoma City</option>
+        <option value="amarillo, tx">Amarillo</option>
+        <option value="gallup, nm">Gallup, NM</option>
+        <option value="flagstaff, az">Flagstaff, AZ</option>
+        <option value="winona, az">Winona</option>
+        <option value="kingman, az">Kingman</option>
+        <option value="barstow, ca">Barstow</option>
+        <option value="san bernardino, ca">San Bernardino</option>
+        <option value="los angeles, ca">Los Angeles</option>
+        <option value="downtown berkeley BART station, shattuck ave, berkeley, ca">BART</option>
+      </select>
+      <b>End: </b>
+      <select id="end" onchange="calcRoute();">
+        <option value="Residence Halls Unit 2, Berkeley, CA">Unit 2</option>
+        <option value="chicago, il">Chicago</option>
+        <option value="st louis, mo">St Louis</option>
+        <option value="joplin, mo">Joplin, MO</option>
+        <option value="oklahoma city, ok">Oklahoma City</option>
+        <option value="amarillo, tx">Amarillo</option>
+        <option value="gallup, nm">Gallup, NM</option>
+        <option value="flagstaff, az">Flagstaff, AZ</option>
+        <option value="winona, az">Winona</option>
+        <option value="kingman, az">Kingman</option>
+        <option value="barstow, ca">Barstow</option>
+        <option value="san bernardino, ca">San Bernardino</option>
+        <option value="los angeles, ca">Los Angeles</option>
+      </select>
+      </div>
+            
+      </nav>
+     
+      
+      <div id="map" class="section"></div>
+      <div id="footer" class="section">
+        <p>Created by Kishan Patel, Sahil Lamba, AC De La Paz, and Dan Ricciardelli</p>
+        <p>CalHacks 2015</p>
+      </div>
+   
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5CVdqKSgBHyc-GBv5w22-vSLsxb31Okc&libraries=visualization&signed_in=true&sensor=true_or_false"
         ></script>
         <script>
